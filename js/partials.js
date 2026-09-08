@@ -25,28 +25,31 @@
     );
   }
 
-  function buildNav(variant) {
+  function buildNav(variant, basePath) {
+    basePath = basePath || '';
     var links = '';
     var showLogo = variant !== 'home';
 
     if (variant === 'home') {
-      links += linkHTML('index.html', 'nav.home', true);
-      links += linkHTML('contacto.html', 'nav.contact', false);
+      links += linkHTML(basePath + 'index.html', 'nav.home', true);
+      links += linkHTML(basePath + 'contacto.html', 'nav.contact', false);
     } else {
-      links += linkHTML('index.html', 'nav.home', false);
+      links += linkHTML(basePath + 'index.html', 'nav.home', false);
       CATEGORIES.forEach(function (cat) {
         if (cat.key === variant) return; // exclude current category, per design brief
-        links += linkHTML(cat.file, cat.labelKey, false);
+        links += linkHTML(basePath + cat.file, cat.labelKey, false);
       });
-      links += linkHTML('contacto.html', 'nav.contact', variant === 'contact');
+      links += linkHTML(basePath + 'contacto.html', 'nav.contact', variant === 'contact');
     }
-    links += langSwitchHTML();
 
     var navClass = variant === 'home' ? 'nav nav--transparent' : 'nav';
     return (
       '<nav class="' + navClass + '"' + (variant === 'home' ? ' id="home-nav"' : '') + '>' +
-      (showLogo ? '<a href="index.html" class="nav__logo">ANDREA ROESSNER</a>' : '') +
+      langSwitchHTML() +
+      '<div class="nav__right">' +
+      (showLogo ? '<a href="' + basePath + 'index.html" class="nav__logo">ANDREA ROESSNER</a>' : '') +
       '<div class="nav__links">' + links + '</div>' +
+      '</div>' +
       '</nav>'
     );
   }
@@ -67,7 +70,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     var navHost = document.querySelector('[data-nav]');
-    if (navHost) navHost.innerHTML = buildNav(navHost.getAttribute('data-nav'));
+    if (navHost) navHost.innerHTML = buildNav(navHost.getAttribute('data-nav'), navHost.getAttribute('data-base'));
     var footerHost = document.querySelector('[data-footer]');
     if (footerHost && footerHost.getAttribute('data-footer') !== 'none') {
       footerHost.innerHTML = buildFooter();

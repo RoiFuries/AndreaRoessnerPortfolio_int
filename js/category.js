@@ -5,7 +5,7 @@
     grid.innerHTML = '';
     window.PROJECTS.forEach(function (p) {
       var a = document.createElement('a');
-      a.href = 'proyecto.html?p=' + encodeURIComponent(p.slug);
+      a.href = 'proyectos/template.html?p=' + encodeURIComponent(p.slug);
       a.className = 'project-card';
 
       var media = document.createElement('div');

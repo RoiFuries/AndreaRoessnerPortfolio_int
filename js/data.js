@@ -18,13 +18,13 @@
   ];
 
   window.GALLERY = [
-    { id: 'detail-g1', src: './assets/detail-g1.png' },
-    { id: 'detail-g2', src: './assets/detail-g2.png' },
-    { id: 'detail-g3', src: './assets/detail-g3.png' },
-    { id: 'detail-g4', src: './assets/detail-g4.png' },
-    { id: 'detail-g5', src: './assets/detail-g5.png' },
-    { id: 'detail-g6', src: './assets/detail-g6.png' },
-    { id: 'detail-g7', src: './assets/detail-g7.png' }
+    { id: 'detail-g1', src: '../assets/img/template/detail-g1.png' },
+    { id: 'detail-g2', src: '../assets/img/template/detail-g2.png' },
+    { id: 'detail-g3', src: '../assets/img/template/detail-g3.png' },
+    { id: 'detail-g4', src: '../assets/img/template/detail-g4.png' },
+    { id: 'detail-g5', src: '../assets/img/template/detail-g5.png' },
+    { id: 'detail-g6', src: '../assets/img/template/detail-g6.png' },
+    { id: 'detail-g7', src: '../assets/img/template/detail-g7.png' }
   ];
 
   window.getProjectBySlug = function (slug) {

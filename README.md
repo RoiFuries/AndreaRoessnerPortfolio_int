@@ -19,7 +19,7 @@ Pages, nginx, etc.).
 | `comerciales.html`            | Grid de proyectos — Comerciales                                        |
 | `videoclips.html`             | Grid de proyectos — Videoclips                                         |
 | `escenografias.html`          | Grid de proyectos — Escenografías                                      |
-| `proyecto.html?p=<slug>`      | Detalle de proyecto (dinámico, lee el slug desde la URL)               |
+| `proyectos/template.html?p=<slug>` | Plantilla de detalle de proyecto (dinámica, lee el slug desde la URL) |
 | `contacto.html`               | Contacto                                                                |
 | `css/style.css`                | Estilos — tokens de color y tipografía al inicio del archivo          |
 | `js/data.js`                  | Datos de proyectos (título, id de Vimeo, director, productora, cliente) |
@@ -29,7 +29,8 @@ Pages, nginx, etc.).
 | `js/category.js`              | Lógica de los grids por categoría                                      |
 | `js/detail.js`                | Lógica de la página de detalle de proyecto                             |
 | `js/contact.js`               | Lógica de la página de contacto                                        |
-| `assets/`                     | Imágenes, fondos y fuentes                                              |
+| `assets/`                     | Fondos de categoría y fuentes                                          |
+| `assets/img/<slug>/`          | Imágenes de galería por proyecto (hoy solo existe `template/`)         |
 
 ## Cómo correrlo localmente
 
@@ -43,9 +44,10 @@ python3 -m http.server 8000
 - **Comerciales, Videoclips y Escenografías comparten los mismos 12 proyectos
   placeholder** (mismos videos de Vimeo) mientras no haya contenido real por
   categoría. Para poner proyectos reales, solo hay que editar `js/data.js`.
-- **Las 7 imágenes de la galería del detalle** (`assets/detail-g1..g7.png`)
-  son las mismas para cualquier proyecto — son placeholders, reemplazar
-  cuando haya fotos reales por proyecto.
+- **Las 7 imágenes de la galería del detalle** (`assets/img/template/detail-g1..g7.png`)
+  son las mismas para cualquier proyecto — son placeholders del proyecto
+  "template". Cuando haya proyectos reales, cada uno debería tener su propia
+  carpeta `assets/img/<slug>/` con sus fotos, referenciada desde `js/data.js`.
 - **Las traducciones EN/DE fueron redactadas por IA**, no por un traductor
   nativo — conviene revisarlas antes de publicar, sobre todo el alemán.
 
