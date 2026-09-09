@@ -28,28 +28,33 @@
   function buildNav(variant, basePath) {
     basePath = basePath || '';
     var links = '';
-    var showLogo = variant !== 'home';
 
     if (variant === 'home') {
       links += linkHTML(basePath + 'index.html', 'nav.home', true);
       links += linkHTML(basePath + 'contacto.html', 'nav.contact', false);
-    } else {
-      links += linkHTML(basePath + 'index.html', 'nav.home', false);
-      CATEGORIES.forEach(function (cat) {
-        if (cat.key === variant) return; // exclude current category, per design brief
-        links += linkHTML(basePath + cat.file, cat.labelKey, false);
-      });
-      links += linkHTML(basePath + 'contacto.html', 'nav.contact', variant === 'contact');
+
+      // Home: single row, no logo — lang-switch on the left, links on the right.
+      return (
+        '<nav class="nav nav--transparent nav--home" id="home-nav">' +
+        langSwitchHTML() +
+        '<div class="nav__links">' + links + '</div>' +
+        '</nav>'
+      );
     }
 
-    var navClass = variant === 'home' ? 'nav nav--transparent' : 'nav';
+    links += linkHTML(basePath + 'index.html', 'nav.home', false);
+    CATEGORIES.forEach(function (cat) {
+      if (cat.key === variant) return; // exclude current category, per design brief
+      links += linkHTML(basePath + cat.file, cat.labelKey, false);
+    });
+    links += linkHTML(basePath + 'contacto.html', 'nav.contact', variant === 'contact');
+
+    // Other pages: logo + links on top row, lang-switch below, right-aligned under Contact.
     return (
-      '<nav class="' + navClass + '"' + (variant === 'home' ? ' id="home-nav"' : '') + '>' +
-      langSwitchHTML() +
-      '<div class="nav__right">' +
-      (showLogo ? '<a href="' + basePath + 'index.html" class="nav__logo">ANDREA ROESSNER</a>' : '') +
+      '<nav class="nav">' +
+      '<a href="' + basePath + 'index.html" class="nav__logo">ANDREA ROESSNER</a>' +
       '<div class="nav__links">' + links + '</div>' +
-      '</div>' +
+      langSwitchHTML() +
       '</nav>'
     );
   }

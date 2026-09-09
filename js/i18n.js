@@ -40,21 +40,21 @@
       common: { close: 'CERRAR ✕' }
     },
     en: {
-      nav: { home: 'HOME', commercials: 'COMMERCIALS', videoclips: 'VIDEOCLIPS', stagedesign: 'STAGE DESIGN', contact: 'CONTACT' },
+      nav: { home: 'HOME', commercials: 'COMMERCIALS', videoclips: 'MUSIC VIDEO', stagedesign: 'STAGE DESIGN', contact: 'CONTACT' },
       footer: { credit: 'With love by Roi Furies', copyright: '© 2026 Andrea Roessner All rights reserved' },
       home: {
         role: 'PRODUCTION DESIGNER',
         location: 'BASED IN MEXICO',
         whatWeDo: 'What we do ↴',
         serviceCommercials: 'Commercials',
-        serviceVideoclips: 'Videoclips',
+        serviceVideoclips: 'Music Video',
         serviceStagedesign: 'Stage Design',
         about: 'Andrea Roessner is a production designer with more than a decade of experience. Her work blends a narrative eye with visual precision, building worlds with their own character for brands, artists, and audiovisual productions.',
         cta: 'More About Me ✦'
       },
       category: {
         commercials: { title: 'Commercials' },
-        videoclips: { title: 'Videoclips' },
+        videoclips: { title: 'Music Video' },
         stagedesign: { title: 'Stage Design' }
       },
       detail: { client: 'Client', director: 'Director', designer: 'Production Designer', watch: 'WATCH', close: 'CLOSE ✕', set: 'Set' },
