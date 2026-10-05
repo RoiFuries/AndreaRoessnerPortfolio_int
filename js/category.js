@@ -27,7 +27,7 @@
       var left = document.createElement('span');
       left.textContent = p.director;
       var right = document.createElement('span');
-      right.textContent = p.dop || '';
+      right.textContent = p.dop || p.productora || '';
       overlay.appendChild(left);
       overlay.appendChild(right);
       media.appendChild(overlay);

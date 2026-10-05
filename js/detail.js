@@ -30,8 +30,10 @@
     var t = window.I18N.t;
     var rows = [
       { label: t('detail.client'), value: project.client },
+      { label: t('detail.song'), value: project.song },
       { label: t('detail.director'), value: project.director },
       { label: t('detail.dop'), value: project.dop },
+      { label: t('detail.productora'), value: project.dop ? null : project.productora },
       { label: t('detail.designer'), value: 'Andrea Roessner' }
     ].filter(function (row) { return row.value; });
     host.innerHTML = '';
@@ -52,7 +54,7 @@
 
     var images = (project.gallery && project.gallery.length)
       ? project.gallery.map(function (file) {
-          return { id: project.slug + '-' + file, src: '../assets/img/' + project.slug + '/' + file };
+          return { id: project.slug + '-' + file, src: window.galleryImageSrc(project, file) };
         })
       : [];
 

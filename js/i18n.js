@@ -9,24 +9,24 @@
 (function () {
   var DICT = {
     es: {
-      nav: { home: 'HOME', commercials: 'COMERCIALES', videoclips: 'VIDEOCLIPS', stagedesign: 'ESCENOGRAFÍAS', contact: 'CONTACTO' },
+      nav: { home: 'HOME', commercials: 'COMERCIALES', videoclips: 'FICCIÓN & VIDEOCLIPS', stagedesign: 'ESCENOGRAFÍAS', contact: 'CONTACTO' },
       footer: { credit: 'With love by Roi Furies', copyright: '© 2026 Andrea Roessner Todos los derechos reservados' },
       home: {
         role: 'PRODUCTION DESIGNER',
         location: 'BASADO EN MÉXICO',
         whatWeDo: 'Lo que hago ↴',
         serviceCommercials: 'Comerciales',
-        serviceVideoclips: 'Videoclips',
+        serviceVideoclips: 'Ficción & Videoclips',
         serviceStagedesign: 'Escenografías',
         about: 'Andrea Roessner es diseñadora de producción con más de una década de experiencia. Su trabajo combina una mirada narrativa con precisión visual, construyendo mundos con carácter propio para marcas, artistas y producciones audiovisuales.',
         cta: 'Más Sobre Mi ✦'
       },
       category: {
         commercials: { title: 'Comerciales' },
-        videoclips: { title: 'Videoclips' },
+        videoclips: { title: 'Ficción & Videoclips' },
         stagedesign: { title: 'Escenografías' }
       },
-      detail: { client: 'Cliente', director: 'Director', dop: 'Director de Fotografía', designer: 'Production Designer', watch: 'VER', close: 'CERRAR ✕', set: 'Set' },
+      detail: { client: 'Cliente', director: 'Director', dop: 'Director de Fotografía', productora: 'Productora', song: 'Canción', designer: 'Production Designer', watch: 'VER', close: 'CERRAR ✕', set: 'Set' },
       contact: {
         title: "Let's Talk",
         email: 'Correo',
@@ -40,24 +40,24 @@
       common: { close: 'CERRAR ✕' }
     },
     en: {
-      nav: { home: 'HOME', commercials: 'COMMERCIALS', videoclips: 'MUSIC VIDEO', stagedesign: 'STAGE DESIGN', contact: 'CONTACT' },
+      nav: { home: 'HOME', commercials: 'COMMERCIALS', videoclips: 'FICTION & MUSIC VIDEO', stagedesign: 'STAGE DESIGN', contact: 'CONTACT' },
       footer: { credit: 'With love by Roi Furies', copyright: '© 2026 Andrea Roessner All rights reserved' },
       home: {
         role: 'PRODUCTION DESIGNER',
         location: 'BASED IN MEXICO',
         whatWeDo: 'What we do ↴',
         serviceCommercials: 'Commercials',
-        serviceVideoclips: 'Music Video',
+        serviceVideoclips: 'Fiction & Music Video',
         serviceStagedesign: 'Stage Design',
         about: 'Andrea Roessner is a production designer with more than a decade of experience. Her work blends a narrative eye with visual precision, building worlds with their own character for brands, artists, and audiovisual productions.',
         cta: 'More About Me ✦'
       },
       category: {
         commercials: { title: 'Commercials' },
-        videoclips: { title: 'Music Video' },
+        videoclips: { title: 'Fiction & Music Video' },
         stagedesign: { title: 'Stage Design' }
       },
-      detail: { client: 'Client', director: 'Director', dop: 'Director of Photography', designer: 'Production Designer', watch: 'WATCH', close: 'CLOSE ✕', set: 'Set' },
+      detail: { client: 'Client', director: 'Director', dop: 'Director of Photography', productora: 'Production Company', song: 'Song', designer: 'Production Designer', watch: 'WATCH', close: 'CLOSE ✕', set: 'Set' },
       contact: {
         title: "Let's Talk",
         email: 'Email',
@@ -71,24 +71,24 @@
       common: { close: 'CLOSE ✕' }
     },
     de: {
-      nav: { home: 'HOME', commercials: 'WERBUNG', videoclips: 'VIDEOCLIPS', stagedesign: 'BÜHNENBILD', contact: 'KONTAKT' },
+      nav: { home: 'HOME', commercials: 'WERBUNG', videoclips: 'FIKTION & VIDEOCLIPS', stagedesign: 'BÜHNENBILD', contact: 'KONTAKT' },
       footer: { credit: 'With love by Roi Furies', copyright: '© 2026 Andrea Roessner Alle Rechte vorbehalten' },
       home: {
         role: 'PRODUCTION DESIGNER',
         location: 'BASIERT IN MEXIKO-STADT',
         whatWeDo: 'Was ich tue ↴',
         serviceCommercials: 'Werbung',
-        serviceVideoclips: 'Videoclips',
+        serviceVideoclips: 'Fiktion & Videoclips',
         serviceStagedesign: 'Bühnenbild',
         about: 'Andrea Roessner ist Szenenbildnerin mit mehr als einem Jahrzehnt Erfahrung. Ihre Arbeit verbindet einen narrativen Blick mit visueller Präzision und erschafft eigenständige Bildwelten für Marken, Künstler und audiovisuelle Produktionen.',
         cta: 'Mehr über mich ✦'
       },
       category: {
         commercials: { title: 'Werbung' },
-        videoclips: { title: 'Videoclips' },
+        videoclips: { title: 'Fiktion & Videoclips' },
         stagedesign: { title: 'Bühnenbild' }
       },
-      detail: { client: 'Kunde', director: 'Regie', dop: 'Kamera', designer: 'Production Designer', watch: 'ANSEHEN', close: 'SCHLIESSEN ✕', set: 'Set' },
+      detail: { client: 'Kunde', director: 'Regie', dop: 'Kamera', productora: 'Produktionsfirma', song: 'Song', designer: 'Production Designer', watch: 'ANSEHEN', close: 'SCHLIESSEN ✕', set: 'Set' },
       contact: {
         title: "Let's Talk",
         email: 'E-Mail',

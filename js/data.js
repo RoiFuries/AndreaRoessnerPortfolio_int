@@ -2,11 +2,21 @@
    category must be one of: 'commercials' | 'videoclips' | 'stagedesign'
    (matches the data-category attribute on each category page's <body>).
    dop = director of photography, shown on the category card hover (right
-   side) and in the detail meta row, when present.
-   gallery is an array of filenames living in assets/img/<slug>/ — omit it
+   side) and in the detail meta row, when present. productora (production
+   company) is the fallback for both of those when a project has no dop
+   (e.g. documentary-style productions credited to a company, not a DOP).
+   song is optional, for music videos — shown in the detail meta row.
+   gallery is an array of filenames living in assets/img/<CategoryFolder>/<slug>/
+   (see CATEGORY_IMG_FOLDER below for the folder per category) — omit it
    (or leave it empty) and the detail page hides the carousel section
    entirely until real photos are added. */
 (function () {
+  var CATEGORY_IMG_FOLDER = {
+    commercials: 'Comerciales',
+    videoclips: 'FiccionVideoClips',
+    stagedesign: 'Escenografias'
+  };
+
   window.PROJECTS = [
     // Comerciales (fuente: PROYECTOS ANDREA ROESSNER - comerciales.pdf)
     { slug: 'doritos', title: 'Doritos', videoId: '1225143374', director: 'Rodrigo Valdez "Rorraz"', dop: 'Javier Zarco AMC', category: 'commercials',
@@ -30,7 +40,17 @@
       gallery: ['GRYarisToyota_1.jpg', 'GRYarisToyota_2.jpg', 'GRYarisToyota_3.jpg', 'GRYarisToyota_4.jpg'] },
     // TODO: falta el videoId de Vimeo — pásalo para que el video cargue.
     { slug: 'gayoso', title: 'Gayoso', videoId: '', director: 'Poncho Aguilar', dop: 'Rocco Rodríguez AMC', category: 'commercials',
-      gallery: ['Gayoso_1.jpeg', 'Gayoso_2.jpeg', 'Gayoso_3.jpeg', 'Gayoso_4.jpeg', 'Gayoso_5.jpeg'] }
+      gallery: ['Gayoso_1.jpeg', 'Gayoso_2.jpeg', 'Gayoso_3.jpeg', 'Gayoso_4.jpeg', 'Gayoso_5.jpeg'] },
+
+    // Ficción & Videoclips
+    { slug: 'el-llamado', title: 'El Llamado', videoId: '1229014110', director: 'Bernardo De La Rosa', dop: 'Rocco Rodríguez AMC', category: 'videoclips' },
+    { slug: 'road-to-a-million', title: 'Road To A Million', videoId: '1229017148', director: 'Craig Pickles', productora: '72 Films', category: 'videoclips',
+      gallery: ['RTAM_1.JPG', 'RTAM_2.jpg', 'RTAM_3.JPG', 'RTAM_4.JPG', 'RTAM_5.JPG', 'RTAM_6.jpg'] },
+    { slug: 'control-z', title: 'Control Z', videoId: '1228981993', director: 'Pato Marin', dop: 'Andrea Arochi', category: 'videoclips',
+      gallery: ['ControlZ_2.jpg', 'ControlZ_3.jpg', 'ControlZ_4.jpg', 'ControlZ_5.jpg'] },
+    { slug: 'el-sonido-de-las-celulas', title: 'El Sonido De Las Células', videoId: '175774795', director: 'Martín Almilcar', dop: 'Rocco Rodríguez AMC', category: 'videoclips' },
+    { slug: 'wave-to-earth', title: 'Wave To Earth', song: 'Heaven And Hell', videoId: '1225139956', director: 'Maureen Hufnagel', dop: 'Leo Calzoni', category: 'videoclips',
+      gallery: ['WaveToEarth_1.jpg', 'WaveToEarth_2.jpg', 'WaveToEarth_3.jpg', 'WaveToEarth_4.jpg', 'WaveToEarth_5.jpg', 'WaveToEarth_6.jpg', 'WaveToEarth_7.png', 'WaveToEarth_8.jpg', 'WaveToEarth_9.jpg'] }
 
     // Ejemplo de proyecto real con categoría y galería propia:
     // { slug: 'mi-videoclip', title: 'Mi Videoclip', videoId: '123456789',
@@ -42,6 +62,11 @@
 
   window.getProjectBySlug = function (slug) {
     return window.PROJECTS.filter(function (p) { return p.slug === slug; })[0] || window.PROJECTS[0];
+  };
+
+  window.galleryImageSrc = function (project, file) {
+    var folder = CATEGORY_IMG_FOLDER[project.category] || 'Template';
+    return '../assets/img/' + folder + '/' + project.slug + '/' + file;
   };
 
   window.vimeoBackgroundSrc = function (id) {
