@@ -31,8 +31,9 @@
     var rows = [
       { label: t('detail.client'), value: project.client },
       { label: t('detail.director'), value: project.director },
+      { label: t('detail.dop'), value: project.dop },
       { label: t('detail.designer'), value: 'Andrea Roessner' }
-    ];
+    ].filter(function (row) { return row.value; });
     host.innerHTML = '';
     rows.forEach(function (row) {
       var item = document.createElement('div');
@@ -45,10 +46,25 @@
   }
 
   function renderGallery() {
+    var section = document.querySelector('.detail-gallery');
     var track = document.getElementById('gallery-track');
-    if (!track || !window.GALLERY) return;
+    if (!track || !project) return;
+
+    var images = (project.gallery && project.gallery.length)
+      ? project.gallery.map(function (file) {
+          return { id: project.slug + '-' + file, src: '../assets/img/' + project.slug + '/' + file };
+        })
+      : [];
+
+    if (!images.length) {
+      if (section) section.hidden = true;
+      track.innerHTML = '';
+      return;
+    }
+    if (section) section.hidden = false;
+
     track.innerHTML = '';
-    var doubled = window.GALLERY.concat(window.GALLERY);
+    var doubled = images.concat(images);
     doubled.forEach(function (g, i) {
       var item = document.createElement('div');
       item.className = 'detail-gallery__item';

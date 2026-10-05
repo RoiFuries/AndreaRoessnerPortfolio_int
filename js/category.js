@@ -3,7 +3,11 @@
     var grid = document.getElementById('project-grid');
     if (!grid) return;
     grid.innerHTML = '';
-    window.PROJECTS.forEach(function (p) {
+    var category = document.body.getAttribute('data-category');
+    var projects = category
+      ? window.PROJECTS.filter(function (p) { return p.category === category; })
+      : window.PROJECTS;
+    projects.forEach(function (p) {
       var a = document.createElement('a');
       a.href = 'proyectos/template.html?p=' + encodeURIComponent(p.slug);
       a.className = 'project-card';
@@ -23,7 +27,7 @@
       var left = document.createElement('span');
       left.textContent = p.director;
       var right = document.createElement('span');
-      right.textContent = p.productora;
+      right.textContent = p.dop || '';
       overlay.appendChild(left);
       overlay.appendChild(right);
       media.appendChild(overlay);

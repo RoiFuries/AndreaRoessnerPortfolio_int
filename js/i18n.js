@@ -26,7 +26,7 @@
         videoclips: { title: 'Videoclips' },
         stagedesign: { title: 'Escenografías' }
       },
-      detail: { client: 'Cliente', director: 'Director', designer: 'Production Designer', watch: 'VER', close: 'CERRAR ✕', set: 'Set' },
+      detail: { client: 'Cliente', director: 'Director', dop: 'Director de Fotografía', designer: 'Production Designer', watch: 'VER', close: 'CERRAR ✕', set: 'Set' },
       contact: {
         title: "Let's Talk",
         email: 'Correo',
@@ -57,7 +57,7 @@
         videoclips: { title: 'Music Video' },
         stagedesign: { title: 'Stage Design' }
       },
-      detail: { client: 'Client', director: 'Director', designer: 'Production Designer', watch: 'WATCH', close: 'CLOSE ✕', set: 'Set' },
+      detail: { client: 'Client', director: 'Director', dop: 'Director of Photography', designer: 'Production Designer', watch: 'WATCH', close: 'CLOSE ✕', set: 'Set' },
       contact: {
         title: "Let's Talk",
         email: 'Email',
@@ -88,7 +88,7 @@
         videoclips: { title: 'Videoclips' },
         stagedesign: { title: 'Bühnenbild' }
       },
-      detail: { client: 'Kunde', director: 'Regie', designer: 'Production Designer', watch: 'ANSEHEN', close: 'SCHLIESSEN ✕', set: 'Set' },
+      detail: { client: 'Kunde', director: 'Regie', dop: 'Kamera', designer: 'Production Designer', watch: 'ANSEHEN', close: 'SCHLIESSEN ✕', set: 'Set' },
       contact: {
         title: "Let's Talk",
         email: 'E-Mail',

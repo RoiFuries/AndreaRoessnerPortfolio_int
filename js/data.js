@@ -1,30 +1,43 @@
-/* Shared project data. Comerciales / Videoclips / Escenografías currently
-   reuse this same placeholder list (per project decision) — swap in real
-   per-category projects later by editing this file only. */
+/* Shared project data.
+   category must be one of: 'commercials' | 'videoclips' | 'stagedesign'
+   (matches the data-category attribute on each category page's <body>).
+   dop = director of photography, shown on the category card hover (right
+   side) and in the detail meta row, when present.
+   gallery is an array of filenames living in assets/img/<slug>/ — omit it
+   (or leave it empty) and the detail page hides the carousel section
+   entirely until real photos are added. */
 (function () {
   window.PROJECTS = [
-    { slug: 'umbral', title: 'Umbral', videoId: '406014876', director: 'Director Name', productora: 'Production company', client: 'Nimbus' },
-    { slug: 'litoral', title: 'Litoral', videoId: '250800592', director: 'Pablo Herrero', productora: 'Niebla Morada', client: 'Client Name' },
-    { slug: 'cristal', title: 'Cristal', videoId: '250796559', director: 'Director Name', productora: 'Production company', client: 'Client Name' },
-    { slug: 'nocturno', title: 'Nocturno', videoId: '175904938', director: 'Armond Cohen', productora: 'Kuter', client: 'Client Name' },
-    { slug: 'silueta', title: 'Silueta', videoId: '406013988', director: 'Director Name', productora: 'Production company', client: 'Client Name' },
-    { slug: 'deriva', title: 'Deriva', videoId: '406012668', director: 'Director Name', productora: 'Production company', client: 'Client Name' },
-    { slug: 'full-life', title: 'Full Life', videoId: '406011381', director: 'Vicky Torres', productora: 'Árbol TV', client: 'Client Name' },
-    { slug: 'marejada', title: 'Marejada', videoId: '304723774', director: 'Gustavo Pérez', productora: 'Central Films', client: 'Client Name' },
-    { slug: 'solsticio', title: 'Solsticio', videoId: '311807966', director: 'Bernardo de la Rosa', productora: 'DELICIOUS', client: 'Client Name' },
-    { slug: 'cauce', title: 'Cauce', videoId: '311808450', director: 'Bernardo de la Rosa', productora: 'DELICIOUS', client: 'Client Name' },
-    { slug: 'vertigo', title: 'Vértigo', videoId: '175780882', director: 'José Sierra', productora: 'Emigre Films', client: 'Client Name' },
-    { slug: 'bruma', title: 'Bruma', videoId: '250800592', director: 'Pablo Herrero', productora: 'Niebla Morada', client: 'Client Name' }
-  ];
+    // Comerciales (fuente: PROYECTOS ANDREA ROESSNER - comerciales.pdf)
+    { slug: 'doritos', title: 'Doritos', videoId: '1225143374', director: 'Rodrigo Valdez "Rorraz"', dop: 'Javier Zarco AMC', category: 'commercials',
+      gallery: ['Doritos_1.jpeg', 'Doritos_2.jpeg', 'Doritos_3.jpeg', 'Doritos_4.jpeg', 'Doritos_5.jpeg'] },
+    { slug: 'bineo', title: 'Bineo', videoId: '1225142102', director: 'Romarico Cibrian', dop: 'Rocco Rodríguez AMC', category: 'commercials' },
+    { slug: 'baz', title: 'Baz', videoId: '1225141349', director: 'Audrey Laham', dop: 'Manuel Caballero AMC', category: 'commercials' },
+    { slug: 'tonal-1', title: 'Tonal — Spot 1', videoId: '1225140948', director: 'Leigh Powis', dop: 'Chuck Owens', category: 'commercials',
+      gallery: ['TonalPilates_1.jpg', 'TonalPilates_2.jpg', 'TonalPilates_3.jpg', 'TonalPilates_4.jpg'] },
+    { slug: 'tonal-2', title: 'Tonal — Spot 2', videoId: '1225139324', director: 'Leigh Powis', dop: 'Chuck Owens', category: 'commercials',
+      gallery: ['TonalSpot2_4.jpg', 'TonalSpot2_5.jpg', 'TonalSpot2_6.jpg', 'TonalSpot2_8.jpg', 'TonalSpot2_9.jpg'] },
+    { slug: 'farmacias-similares', title: 'Farmacias Similares', videoId: '1225140590', director: 'Vicky Torres', dop: 'Manuel Caballero AMC', category: 'commercials' },
+    { slug: 'upper-deck', title: 'Upper Deck', videoId: '1225140277', director: 'Adam Tilman Young', dop: 'Guille Vázquez', category: 'commercials',
+      gallery: ['8_1.4.1.JPG', 'A011_1.6.3.JPG', 'IMG_0097.jpg', 'IMG_0098.jpg', 'IMG_0099.jpg', 'IMG_0100.jpg', 'IMG_0101.jpg', 'IMG_0102.jpg', 'IMG_0103.jpg', 'IMG_9039.jpg', 'IMG_9045.JPG', 'IMG_9073.JPG'] },
+    { slug: 'nike-jogger', title: 'Nike Jogger', videoId: '406013458', director: 'Martin Marcos Levi', dop: 'Juan Guillermo Peña', category: 'commercials' },
+    { slug: 'coffee-mate', title: 'Coffee Mate', videoId: '406012668', director: 'Jose Pablo Milone', dop: 'Lluis Marti', category: 'commercials' },
+    { slug: 'lala-sabores-de-mexico', title: 'Lala. Sabores De México', videoId: '406014876', director: 'Rodrigo Fiallega', dop: 'Alfonso Aguilar', category: 'commercials' },
+    { slug: 'mabe', title: 'Mabe', videoId: '1228980284', director: 'Pablo Nieto', dop: 'Javier Zarco AMC', category: 'commercials',
+      gallery: ['Mabe_1.jpg', 'Mabe_2.jpg', 'Mabe_3.jpg', 'Mabe_4.jpg', 'Mabe_5.jpg', 'Mabe_6.jpg'] },
+    { slug: 'monte-de-piedad', title: 'Monte De Piedad', videoId: '406009857', director: 'Hans Hoj', dop: 'Leo Calzoni', category: 'commercials' },
+    { slug: 'gr-yaris-toyota', title: 'GR Yaris Toyota', videoId: '1228986255', director: 'Poncho Guerrero', dop: 'Rocco Rodríguez AMC', category: 'commercials',
+      gallery: ['GRYarisToyota_1.jpg', 'GRYarisToyota_2.jpg', 'GRYarisToyota_3.jpg', 'GRYarisToyota_4.jpg'] },
+    // TODO: falta el videoId de Vimeo — pásalo para que el video cargue.
+    { slug: 'gayoso', title: 'Gayoso', videoId: '', director: 'Poncho Aguilar', dop: 'Rocco Rodríguez AMC', category: 'commercials',
+      gallery: ['Gayoso_1.jpeg', 'Gayoso_2.jpeg', 'Gayoso_3.jpeg', 'Gayoso_4.jpeg', 'Gayoso_5.jpeg'] }
 
-  window.GALLERY = [
-    { id: 'detail-g1', src: '../assets/img/template/detail-g1.png' },
-    { id: 'detail-g2', src: '../assets/img/template/detail-g2.png' },
-    { id: 'detail-g3', src: '../assets/img/template/detail-g3.png' },
-    { id: 'detail-g4', src: '../assets/img/template/detail-g4.png' },
-    { id: 'detail-g5', src: '../assets/img/template/detail-g5.png' },
-    { id: 'detail-g6', src: '../assets/img/template/detail-g6.png' },
-    { id: 'detail-g7', src: '../assets/img/template/detail-g7.png' }
+    // Ejemplo de proyecto real con categoría y galería propia:
+    // { slug: 'mi-videoclip', title: 'Mi Videoclip', videoId: '123456789',
+    //   director: 'Nombre', dop: 'Nombre',
+    //   category: 'videoclips',
+    //   gallery: ['foto1.jpg', 'foto2.jpg', 'foto3.jpg'] }
+    // (las imágenes van en assets/img/mi-videoclip/foto1.jpg, etc.)
   ];
 
   window.getProjectBySlug = function (slug) {
