@@ -15,12 +15,20 @@
       var media = document.createElement('div');
       media.className = 'project-card__media';
 
-      var iframe = document.createElement('iframe');
-      iframe.src = window.vimeoBackgroundSrc(p.videoId);
-      iframe.setAttribute('allow', 'autoplay');
-      iframe.setAttribute('title', p.title);
-      iframe.loading = 'lazy';
-      media.appendChild(iframe);
+      if (p.videoId) {
+        var iframe = document.createElement('iframe');
+        iframe.src = window.vimeoBackgroundSrc(p.videoId);
+        iframe.setAttribute('allow', 'autoplay');
+        iframe.setAttribute('title', p.title);
+        iframe.loading = 'lazy';
+        media.appendChild(iframe);
+      } else if (p.gallery && p.gallery.length) {
+        var img = document.createElement('img');
+        img.src = window.galleryImageSrc(p, p.gallery[0], 'assets/img/');
+        img.alt = '';
+        img.loading = 'lazy';
+        media.appendChild(img);
+      }
 
       var overlay = document.createElement('div');
       overlay.className = 'project-card__overlay';
@@ -28,7 +36,12 @@
       left.textContent = p.director;
       var right = document.createElement('span');
       right.textContent = p.dop || p.productora || '';
+      var watch = document.createElement('span');
+      watch.className = 'project-card__watch';
+      watch.setAttribute('data-i18n', 'detail.watch');
+      if (window.I18N) watch.textContent = window.I18N.t('detail.watch');
       overlay.appendChild(left);
+      overlay.appendChild(watch);
       overlay.appendChild(right);
       media.appendChild(overlay);
 

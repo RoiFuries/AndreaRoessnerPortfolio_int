@@ -43,14 +43,32 @@
       gallery: ['Gayoso_1.jpeg', 'Gayoso_2.jpeg', 'Gayoso_3.jpeg', 'Gayoso_4.jpeg', 'Gayoso_5.jpeg'] },
 
     // Ficción & Videoclips
-    { slug: 'el-llamado', title: 'El Llamado', videoId: '1229014110', director: 'Bernardo De La Rosa', dop: 'Rocco Rodríguez AMC', category: 'videoclips' },
+    { slug: 'el-llamado', title: 'El Llamado', videoId: '1229014110', director: 'Bernardo De La Rosa', dop: 'Rocco Rodríguez AMC', category: 'videoclips',
+      gallery: ['FMF_Seleccion_1.jpeg', 'FMF_Seleccion_2.jpeg', 'FMF_Seleccion_3.jpeg'] },
     { slug: 'road-to-a-million', title: 'Road To A Million', videoId: '1229017148', director: 'Craig Pickles', productora: '72 Films', category: 'videoclips',
       gallery: ['RTAM_1.JPG', 'RTAM_2.jpg', 'RTAM_3.JPG', 'RTAM_4.JPG', 'RTAM_5.JPG', 'RTAM_6.jpg'] },
     { slug: 'control-z', title: 'Control Z', videoId: '1228981993', director: 'Pato Marin', dop: 'Andrea Arochi', category: 'videoclips',
       gallery: ['ControlZ_2.jpg', 'ControlZ_3.jpg', 'ControlZ_4.jpg', 'ControlZ_5.jpg'] },
     { slug: 'el-sonido-de-las-celulas', title: 'El Sonido De Las Células', videoId: '175774795', director: 'Martín Almilcar', dop: 'Rocco Rodríguez AMC', category: 'videoclips' },
     { slug: 'wave-to-earth', title: 'Wave To Earth', song: 'Heaven And Hell', videoId: '1225139956', director: 'Maureen Hufnagel', dop: 'Leo Calzoni', category: 'videoclips',
-      gallery: ['WaveToEarth_1.jpg', 'WaveToEarth_2.jpg', 'WaveToEarth_3.jpg', 'WaveToEarth_4.jpg', 'WaveToEarth_5.jpg', 'WaveToEarth_6.jpg', 'WaveToEarth_7.png', 'WaveToEarth_8.jpg', 'WaveToEarth_9.jpg'] }
+      gallery: ['WaveToEarth_1.jpg', 'WaveToEarth_2.jpg', 'WaveToEarth_3.jpg', 'WaveToEarth_4.jpg', 'WaveToEarth_5.jpg', 'WaveToEarth_6.jpg', 'WaveToEarth_7.png', 'WaveToEarth_8.jpg', 'WaveToEarth_9.jpg'] },
+
+    // Escenografías — sin videoId: el hero muestra un carrusel de fotos
+    // en vez de video. Faltan director/DOP, avísame cuando los tengas.
+    { slug: 'corona-capital-music-festival', title: 'Corona Capital — Music Festival', videoId: '', category: 'stagedesign',
+      gallery: ['CoronaCapital_MusicFestival_1.jpg', 'CoronaCapital_MusicFestival_2.jpg', 'CoronaCapital_MusicFestival_3.jpg', 'CoronaCapital_MusicFestival_4.jpg', 'CoronaCapital_MusicFestival_5.jpg'] },
+    { slug: 'corona-capital-music-festival-2017', title: 'Corona Capital — Music Festival 2017', videoId: '', category: 'stagedesign',
+      gallery: ['CoronaCapital_MusicFestival2017_1.jpg', 'CoronaCapital_MusicFestival2017_2.jpg', 'CoronaCapital_MusicFestival2017_3.jpg', 'CoronaCapital_MusicFestival2017_4.jpg', 'CoronaCapital_MusicFestival2017_5.jpg'] },
+    { slug: 'heaven-and-hell-music-festival', title: 'Heaven And Hell — Music Festival', videoId: '', category: 'stagedesign',
+      gallery: ['HeavenAndHell_MusicFestival__1.jpg', 'HeavenAndHell_MusicFestival__2.jpg', 'HeavenAndHell_MusicFestival__3.jpg', 'HeavenAndHell_MusicFestival__4.jpg'] },
+    { slug: 'lol-argentina', title: 'LOL Argentina', videoId: '', category: 'stagedesign',
+      gallery: ['LOLArgentina_1.jpg', 'LOLArgentina_2.jpg', 'LOLArgentina_3.jpg', 'LOLArgentina_4.jpg', 'LOLArgentina_5.jpg', 'LOLArgentina_6.jpg'] },
+    { slug: 'leo-netflix-branding', title: 'Leo — Netflix Branding', videoId: '', category: 'stagedesign',
+      gallery: ['LepNETFLIXBranding_1.jpg', 'LepNETFLIXBranding_2.jpg', 'LepNETFLIXBranding_3.jpg'] },
+    { slug: 'leo-netflix-stunt', title: 'Leo — Netflix Stunt', videoId: '', category: 'stagedesign',
+      gallery: ['LeoNETFLIXStunt_1.jpg', 'LeoNETFLIXStunt_2.jpg', 'LeoNETFLIXStunt_3.jpg', 'LeoNETFLIXStunt_4.jpg', 'LeoNETFLIXStunt_5.jpg', 'LeoNETFLIXStunt_6.jpg', 'LeoNETFLIXStunt_7.jpg', 'LeoNETFLIXStunt_8.jpg'] },
+    { slug: 'mujeres-asesinas', title: 'Mujeres Asesinas', videoId: '', category: 'stagedesign',
+      gallery: ['MujeresAsesinas_1.jpg', 'MujeresAsesinas_2.jpg', 'MujeresAsesinas_3.jpg', 'MujeresAsesinas_4.jpg', 'MujeresAsesinas_5.jpg', 'MujeresAsesinas_6.jpg', 'MujeresAsesinas_7.jpg', 'MujeresAsesinas_8.jpg'] }
 
     // Ejemplo de proyecto real con categoría y galería propia:
     // { slug: 'mi-videoclip', title: 'Mi Videoclip', videoId: '123456789',
@@ -64,9 +82,9 @@
     return window.PROJECTS.filter(function (p) { return p.slug === slug; })[0] || window.PROJECTS[0];
   };
 
-  window.galleryImageSrc = function (project, file) {
+  window.galleryImageSrc = function (project, file, base) {
     var folder = CATEGORY_IMG_FOLDER[project.category] || 'Template';
-    return '../assets/img/' + folder + '/' + project.slug + '/' + file;
+    return (base || '../assets/img/') + folder + '/' + project.slug + '/' + file;
   };
 
   window.vimeoBackgroundSrc = function (id) {

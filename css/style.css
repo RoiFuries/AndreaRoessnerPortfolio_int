@@ -304,9 +304,10 @@ img { max-width: 100%; }
 }
 .project-card__media img {
   position: absolute;
-  inset: 0;
+  top: 50%; left: 50%;
   width: 100%; height: 100%;
   object-fit: cover;
+  transform: translate(-50%, -50%);
 }
 .project-card__overlay {
   position: absolute;
@@ -321,11 +322,24 @@ img { max-width: 100%; }
   z-index: 2;
 }
 .project-card:hover .project-card__overlay { opacity: 1; }
-.project-card:hover .project-card__media img,
 .project-card:hover .project-card__media iframe { transform: translate(-50%, -50%) scale(1.46); }
+.project-card:hover .project-card__media img { transform: translate(-50%, -50%) scale(1.12); }
 .project-card__media img { transition: transform 0.6s ease; }
 .project-card__media iframe { transition: transform 0.6s ease; }
 .project-card__overlay span { color: var(--cream); font-size: 11px; letter-spacing: 0.02em; }
+.project-card__watch {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid var(--cream);
+  border-radius: 100px;
+  padding: 8px 22px;
+  color: var(--cream);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  white-space: nowrap;
+}
 .project-card__title {
   font-weight: 500;
   font-size: 16px;
@@ -517,6 +531,7 @@ img { max-width: 100%; }
   align-items: center;
   justify-content: center;
 }
+.detail-video__overlay[hidden] { display: none; }
 .detail-video:hover .detail-video__overlay { opacity: 1; background: rgba(0,0,0,0.75); }
 .detail-video__watch {
   display: flex;
@@ -527,6 +542,18 @@ img { max-width: 100%; }
   padding: 14px 32px;
 }
 .detail-video__watch span { color: var(--cream); font-size: 14px; letter-spacing: 0.15em; font-weight: 600; }
+.detail-video--stills { cursor: default; }
+.detail-hero-carousel { position: absolute; inset: 0; }
+.detail-hero-carousel img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease;
+  cursor: pointer;
+}
+.detail-hero-carousel img.active { opacity: 1; }
 
 .detail-meta {
   padding: 48px 48px 0;
@@ -560,7 +587,7 @@ img { max-width: 100%; }
 }
 .lightbox[hidden] { display: none; }
 .lightbox__frame { position: relative; width: 100%; max-width: 1100px; aspect-ratio: 16/9; }
-.lightbox__frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+.lightbox__frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; transition: opacity 0.3s ease; }
 .lightbox__close, .video-fullscreen__close {
   position: absolute;
   top: 32px; right: 48px;
