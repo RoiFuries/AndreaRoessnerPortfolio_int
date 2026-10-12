@@ -38,9 +38,11 @@
     { slug: 'monte-de-piedad', title: 'Monte De Piedad', videoId: '406009857', director: 'Hans Hoj', dop: 'Leo Calzoni', category: 'commercials' },
     { slug: 'gr-yaris-toyota', title: 'GR Yaris Toyota', videoId: '1228986255', director: 'Poncho Guerrero', dop: 'Rocco Rodríguez AMC', category: 'commercials',
       gallery: ['GRYarisToyota_1.jpg', 'GRYarisToyota_2.jpg', 'GRYarisToyota_3.jpg', 'GRYarisToyota_4.jpg'] },
-    // TODO: falta el videoId de Vimeo — pásalo para que el video cargue.
-    { slug: 'gayoso', title: 'Gayoso', videoId: '', director: 'Poncho Aguilar', dop: 'Rocco Rodríguez AMC', category: 'commercials',
-      gallery: ['Gayoso_1.jpeg', 'Gayoso_2.jpeg', 'Gayoso_3.jpeg', 'Gayoso_4.jpeg', 'Gayoso_5.jpeg'] },
+    { slug: 'gayoso', title: 'Gayoso', videoId: '1235144504', director: 'Poncho Aguilar', dop: 'Rocco Rodríguez AMC', category: 'commercials',
+      gallery: ['Gayosso_Andrea_Roessner_1.png', 'Gayosso_Andrea_Roessner_2.png', 'Gayosso_Andrea_Roessner_3.png', 'Gayosso_Andrea_Roessner_4.png', 'Gayosso_Andrea_Roessner_5.png', 'Gayosso_Andrea_Roessner_6.png'] },
+    { slug: 'price-travel', title: 'Price Travel', videoId: '1235145680', director: 'Poncho Aguilar', dop: 'Rocco Rodríguez AMC', category: 'commercials',
+      gallery: ['PriceTravel_Andrea_Roessner_1.png', 'PriceTravel_Andrea_Roessner_2.png', 'PriceTravel_Andrea_Roessner_3.png', 'PriceTravel_Andrea_Roessner_4.png', 'PriceTravel_Andrea_Roessner_5.png'] },
+    { slug: 'pepto-bismol', title: 'Pepto-Bismol', videoId: '1235150529', dop: 'Jordi Planell AMC', category: 'commercials' },
 
     // Ficción & Videoclips
     { slug: 'el-llamado', title: 'El Llamado', videoId: '1229014110', director: 'Bernardo De La Rosa', dop: 'Rocco Rodríguez AMC', category: 'videoclips',

@@ -35,7 +35,7 @@
         basedIn: 'Ubicado en',
         location: 'Ciudad de México',
         aboutLabel: 'Sobre consultas',
-        aboutText: 'Disponible para proyectos de comerciales, videoclips y escenografía. Cuéntame sobre tu producción, timeline y referencias — respondo en 24–48 horas.'
+        aboutText: 'Disponible para proyectos de comerciales, videoclips y escenografía. Cuéntame sobre tu producción, timeline y referencias.'
       },
       common: { close: 'CERRAR ✕' }
     },
@@ -66,7 +66,7 @@
         basedIn: 'Based in',
         location: 'Mexico City',
         aboutLabel: 'About inquiries',
-        aboutText: 'Available for commercial, music video, and stage design projects. Tell me about your production, timeline, and references — I respond within 24–48 hours.'
+        aboutText: 'Available for commercial, music video, and stage design projects. Tell me about your production, timeline, and references.'
       },
       common: { close: 'CLOSE ✕' }
     },
@@ -97,7 +97,7 @@
         basedIn: 'Standort',
         location: 'Mexiko-Stadt',
         aboutLabel: 'Über Anfragen',
-        aboutText: 'Verfügbar für Projekte in den Bereichen Werbung, Musikvideos und Bühnenbild. Erzähl mir von deiner Produktion, deinem Zeitplan und Referenzen — ich antworte innerhalb von 24–48 Stunden.'
+        aboutText: 'Verfügbar für Projekte in den Bereichen Werbung, Musikvideos und Bühnenbild. Erzähl mir von deiner Produktion, deinem Zeitplan und Referenzen.'
       },
       common: { close: 'SCHLIESSEN ✕' }
     }
