@@ -5,6 +5,8 @@
    side) and in the detail meta row, when present. productora (production
    company) is the fallback for both of those when a project has no dop
    (e.g. documentary-style productions credited to a company, not a DOP).
+   type is optional: short label shown right-aligned next to the title on the
+   category grid cards (an i18n key under `type` in i18n.js, e.g. 'videoclip').
    song is optional, for music videos — shown in the detail meta row.
    gallery is an array of filenames living in assets/img/<CategoryFolder>/<slug>/
    (see CATEGORY_IMG_FOLDER below for the folder per category) — omit it
@@ -48,12 +50,12 @@
     // Ficción & Videoclips
     { slug: 'el-llamado', title: 'El Llamado', videoId: '1229014110', director: 'Bernardo De La Rosa', dop: 'Rocco Rodríguez AMC', category: 'videoclips',
       gallery: ['FMF_Seleccion_1.jpeg', 'FMF_Seleccion_2.jpeg', 'FMF_Seleccion_3.jpeg'] },
-    { slug: 'road-to-a-million', title: 'Road To A Million', videoId: '1229017148', director: 'Craig Pickles', productora: '72 Films', category: 'videoclips',
+    { slug: 'road-to-a-million', title: 'Road To A Million', type: 'season2chapter', videoId: '1229017148', director: 'Craig Pickles', productora: '72 Films', category: 'videoclips',
       gallery: ['RTAM_1.JPG', 'RTAM_2.jpg', 'RTAM_3.JPG', 'RTAM_4.JPG', 'RTAM_5.JPG', 'RTAM_6.jpg'] },
-    { slug: 'control-z', title: 'Control Z', videoId: '1228981993', director: 'Pato Marin', dop: 'Andrea Arochi', category: 'videoclips',
+    { slug: 'control-z', title: 'Control Z', type: 'teaser', videoId: '1228981993', director: 'Pato Marin', dop: 'Andrea Arochi', category: 'videoclips',
       gallery: ['ControlZ_2.jpg', 'ControlZ_3.jpg', 'ControlZ_4.jpg', 'ControlZ_5.jpg'] },
-    { slug: 'el-sonido-de-las-celulas', title: 'El Sonido De Las Células', videoId: '175774795', director: 'Martín Almilcar', dop: 'Rocco Rodríguez AMC', category: 'videoclips' },
-    { slug: 'wave-to-earth', title: 'Wave To Earth', song: 'Heaven And Hell', videoId: '1225139956', director: 'Maureen Hufnagel', dop: 'Leo Calzoni', category: 'videoclips',
+    { slug: 'el-sonido-de-las-celulas', title: 'El Sonido De Las Células', type: 'movie', videoId: '175774795', director: 'Martín Almilcar', dop: 'Rocco Rodríguez AMC', category: 'videoclips' },
+    { slug: 'wave-to-earth', title: 'Wave To Earth', type: 'videoclip', song: 'Heaven And Hell', videoId: '1225139956', director: 'Maureen Hufnagel', dop: 'Leo Calzoni', category: 'videoclips',
       gallery: ['WaveToEarth_1.jpg', 'WaveToEarth_2.jpg', 'WaveToEarth_3.jpg', 'WaveToEarth_4.jpg', 'WaveToEarth_5.jpg', 'WaveToEarth_6.jpg', 'WaveToEarth_7.png', 'WaveToEarth_8.jpg', 'WaveToEarth_9.jpg'] },
 
     // Escenografías — sin videoId: el hero muestra un carrusel de fotos

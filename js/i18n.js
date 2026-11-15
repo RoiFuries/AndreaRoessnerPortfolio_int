@@ -26,6 +26,7 @@
         videoclips: { title: 'Ficción & Videoclips' },
         stagedesign: { title: 'Escenografías' }
       },
+      type: { videoclip: 'Videoclip', movie: 'Película', teaser: 'Teaser', season2chapter: 'Temporada 2 Capítulo' },
       detail: { client: 'Cliente', director: 'Director', dop: 'Director de Fotografía', productora: 'Productora', song: 'Canción', designer: 'Production Designer', watch: 'VER', close: 'CERRAR ✕', set: 'Set' },
       contact: {
         title: "Let's Talk",
@@ -57,6 +58,7 @@
         videoclips: { title: 'Fiction & Music Video' },
         stagedesign: { title: 'Stage Design' }
       },
+      type: { videoclip: 'Music Video', movie: 'Movie', teaser: 'Teaser', season2chapter: 'Season 2 Chapter' },
       detail: { client: 'Client', director: 'Director', dop: 'Director of Photography', productora: 'Production Company', song: 'Song', designer: 'Production Designer', watch: 'WATCH', close: 'CLOSE ✕', set: 'Set' },
       contact: {
         title: "Let's Talk",
@@ -88,6 +90,7 @@
         videoclips: { title: 'Fiktion & Videoclips' },
         stagedesign: { title: 'Bühnenbild' }
       },
+      type: { videoclip: 'Musikvideo', movie: 'Film', teaser: 'Teaser', season2chapter: 'Staffel 2 Kapitel' },
       detail: { client: 'Kunde', director: 'Regie', dop: 'Kamera', productora: 'Produktionsfirma', song: 'Song', designer: 'Production Designer', watch: 'ANSEHEN', close: 'SCHLIESSEN ✕', set: 'Set' },
       contact: {
         title: "Let's Talk",

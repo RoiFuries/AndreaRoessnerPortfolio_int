@@ -45,12 +45,22 @@
       overlay.appendChild(right);
       media.appendChild(overlay);
 
-      var title = document.createElement('div');
+      var head = document.createElement('div');
+      head.className = 'project-card__head';
+      var title = document.createElement('span');
       title.className = 'project-card__title';
       title.textContent = p.title;
+      head.appendChild(title);
+      if (p.type) {
+        var type = document.createElement('span');
+        type.className = 'project-card__type';
+        type.setAttribute('data-i18n', 'type.' + p.type);
+        if (window.I18N) type.textContent = window.I18N.t('type.' + p.type);
+        head.appendChild(type);
+      }
 
       a.appendChild(media);
-      a.appendChild(title);
+      a.appendChild(head);
       grid.appendChild(a);
     });
   }
