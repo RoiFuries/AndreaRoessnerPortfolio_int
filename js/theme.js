@@ -1,22 +1,43 @@
-/* Light / dark toggle. Persists in localStorage ('ar_theme'), defaults to the
-   system preference. The theme is applied immediately (script runs in <head>)
-   to avoid a flash; the button is added next to every language switch. */
+/* Light / dark theme.
+   Default: automatic by the visitor's local time — dark from 18:00 to 06:00,
+   light from 06:00 to 18:00 (re-checked every minute while the page is open).
+   The toggle button is a manual override that lasts for the browser session
+   (sessionStorage, key 'ar_theme'); in a new session it goes back to automatic.
+   The theme is applied immediately (script runs in <head>) to avoid a flash;
+   the button is added next to every language switch. */
 (function () {
   var KEY = 'ar_theme';
+  var DARK_FROM = 18, DARK_UNTIL = 6; // local hours
   var root = document.documentElement;
 
-  function stored() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
-  function initial() {
-    var s = stored();
-    if (s === 'dark' || s === 'light') return s;
-    return window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  function manual() {
+    try {
+      var s = sessionStorage.getItem(KEY);
+      return s === 'dark' || s === 'light' ? s : null;
+    } catch (e) { return null; }
   }
+  // Testing aid: add ?hora=22 (0-23) to the URL to simulate that hour.
+  function testHour() {
+    var m = /[?&]hora=(\d{1,2})(?:&|$)/.exec(location.search);
+    return m && +m[1] < 24 ? +m[1] : null;
+  }
+  function byTime() {
+    var h = testHour();
+    if (h === null) h = new Date().getHours();
+    return h >= DARK_FROM || h < DARK_UNTIL ? 'dark' : 'light';
+  }
+  function initial() { return manual() || byTime(); }
   function apply(t) {
     root.setAttribute('data-theme', t);
     document.querySelectorAll('.theme-toggle').forEach(function (b) {
       b.setAttribute('aria-label', t === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
     });
   }
+
+  // Follow the clock while the page stays open, unless the user chose manually.
+  setInterval(function () {
+    if (!manual()) apply(byTime());
+  }, 60000);
 
   apply(initial());
 
@@ -46,7 +67,7 @@
     var b = e.target.closest && e.target.closest('.theme-toggle');
     if (!b) return;
     var t = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    try { localStorage.setItem(KEY, t); } catch (err) {}
+    try { sessionStorage.setItem(KEY, t); } catch (err) {}
     apply(t);
   });
 })();
