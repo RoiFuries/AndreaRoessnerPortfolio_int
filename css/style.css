@@ -7,24 +7,12 @@
 
 /* ===== Tokens ===== */
 :root {
-  --ink: #17140E;
-  --ink-soft: #6B6558;
-  --paper: #FFFFFF;
-  --cream: #F5F3EE;
-  --border: rgba(23, 20, 14, 0.15);
-  --border-active: rgba(245, 243, 238, 0.35);
-  --nav-bg: rgba(255,255,255,0.9);
-  --hover-bg: rgba(0,0,0,0.04);
-  --hero-num: #5C5648;
-  color-scheme: light;
-}
-
-/* Dark mode: black background, light text */
-:root[data-theme="dark"] {
   --ink: #F5F3EE;
   --ink-soft: #A39D90;
   --paper: #000000;
+  --cream: #F5F3EE;
   --border: rgba(245, 243, 238, 0.2);
+  --border-active: rgba(245, 243, 238, 0.35);
   --nav-bg: rgba(0,0,0,0.9);
   --hover-bg: rgba(255,255,255,0.08);
   --hero-num: #A39D90;
@@ -383,7 +371,7 @@ img { max-width: 100%; }
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  padding: 130px 48px 56px;
+  padding: clamp(84px, 14vh, 130px) 48px clamp(28px, 6vh, 56px);
   flex: 1;
 }
 .hero__bg {
@@ -407,11 +395,12 @@ img { max-width: 100%; }
 .hero__name {
   position: relative;
   z-index: 2;
-  margin-top: 40px;
+  margin-top: clamp(12px, 4vh, 40px);
 }
 .hero__name-line {
   font-weight: 700;
-  font-size: clamp(52px, 10vw, 140px);
+  /* also scales with viewport height so the whole home fits without scrolling */
+  font-size: clamp(52px, min(10vw, 15vh), 140px);
   line-height: 0.92;
   letter-spacing: -0.02em;
   transition: color 0.5s ease, text-align 0.4s ease;
@@ -449,11 +438,12 @@ img { max-width: 100%; }
   display: grid;
   grid-template-columns: minmax(260px, 380px) 1fr;
   gap: 60px;
-  margin-top: 160px;
+  margin-top: auto; /* pushes the row to the bottom of the viewport */
+  padding-top: clamp(24px, 6vh, 80px);
   animation: fadeUp 0.9s ease-out 0.3s both;
 }
 @media (max-width: 760px) {
-  .hero__row { grid-template-columns: 1fr; margin-top: 80px; }
+  .hero__row { grid-template-columns: 1fr; margin-top: 80px; padding-top: 0; }
   .hero__about { align-items: flex-start !important; text-align: left !important; }
   .hero__about p { text-align: left !important; width: auto !important; }
   .hero__role {
@@ -470,7 +460,7 @@ img { max-width: 100%; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 0;
+  padding: clamp(9px, 2vh, 16px) 0;
   border-top: 1px solid var(--border);
   cursor: pointer;
   transition: all 0.5s ease;
@@ -683,23 +673,3 @@ a.contact-grid__cell:hover { opacity: 0.55; }
 /* Fade-in on scroll utility */
 [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
 [data-reveal].in-view { opacity: 1; transform: translateY(0); }
-
-/* ===== Theme toggle ===== */
-.theme-toggle {
-  appearance: none;
-  background: none;
-  border: none;
-  color: inherit;
-  cursor: pointer;
-  padding: 2px 3px;
-  margin-left: 6px;
-  opacity: 0.7;
-  display: inline-flex;
-  align-items: center;
-  transition: opacity 0.25s ease;
-}
-.theme-toggle:hover { opacity: 1; }
-.theme-toggle svg { width: 16px; height: 16px; display: block; }
-.theme-toggle .icon-sun { display: none; }
-:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
-:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
